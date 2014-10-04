@@ -28,6 +28,9 @@ app.put('/api/user/:id/name/:name/email/:email',user.updateInfo);
 //Top
 app.get('/api/tap/:userId/timestamp/:timestamp', top.checkTop);
 
+
+app.get('/api/timestamp', api.timestamp);
+
 //app.post('/api/user',api.)
 
 
