@@ -22,7 +22,7 @@ app.get('/api/awesomeThings', api.awesomeThings);
 //Users
 app.get('/api/users', user.getUsers);
 app.post('/api/user', user.createUser);
-app.put('/api/user/:id/name/:name/email/:email',user.updateInfo);
+app.put('/api/user/:id',user.updateInfo);
 
 
 //Top
