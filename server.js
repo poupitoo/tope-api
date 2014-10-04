@@ -24,6 +24,7 @@ app.get('/api/users', user.getUsers);
 app.post('/api/user', user.createUser);
 app.put('/api/user/:id',user.updateUserInfo);
 
+
 //Terminals
 app.get('/api/terminals', user.getTerminals);
 app.post('/api/terminal', user.createTerminal);
