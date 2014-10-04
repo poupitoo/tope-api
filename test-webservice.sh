@@ -12,4 +12,4 @@ curl -X PUT --data "id=0&name=value2&email=value3" http://localhost:3000/api/use
 #Check top
 curl http://localhost:3000/api/tap/0/timestamp/100/
 
-curl http://localhost:3000/api/tap/1/timestamp/100/
+curl http://localhost:3000/api/tap/1/timestamp/400/
