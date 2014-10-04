@@ -22,7 +22,13 @@ app.get('/api/awesomeThings', api.awesomeThings);
 //Users
 app.get('/api/users', user.getUsers);
 app.post('/api/user', user.createUser);
-app.put('/api/user/:id',user.updateInfo);
+app.put('/api/user/:id',user.updateUserInfo);
+
+//Teriminals
+app.get('/api/terminals', user.getTerminals);
+app.post('/api/terminal', user.createTerminal);
+app.put('/api/terminal/:id',user.updateUserInfo);
+
 
 
 //Top
