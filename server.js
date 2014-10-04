@@ -24,10 +24,10 @@ app.get('/api/users', user.getUsers);
 app.post('/api/user', user.createUser);
 app.put('/api/user/:id',user.updateUserInfo);
 
-//Teriminals
+//Terminals
 app.get('/api/terminals', user.getTerminals);
 app.post('/api/terminal', user.createTerminal);
-app.put('/api/terminal/:id',user.updateUserInfo);
+app.put('/api/terminal/:id',user.updateTerminalInfo);
 
 
 
@@ -35,6 +35,7 @@ app.put('/api/terminal/:id',user.updateUserInfo);
 app.get('/api/tap/:userId/timestamp/:timestamp', top.checkTop);
 
 
+//Synchronisation
 app.get('/api/timestamp', api.timestamp);
 
 //app.post('/api/user',api.)
