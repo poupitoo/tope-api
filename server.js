@@ -13,6 +13,7 @@ require('./lib/config/express')(app);
 var api = require('./lib/controllers/api'),
 		user = require('./lib/controllers/models/user'),
 		top = require('./lib/controllers/models/top'),
+		mail = require('./lib/controllers/mailserver'),
     index = require('./lib/controllers');
 
 // Server Routes
@@ -38,6 +39,9 @@ app.get('/api/tap/:userId/timestamp/:timestamp', top.checkTop);
 
 //Synchronisation
 app.get('/api/timestamp', api.timestamp);
+
+//Mail
+app.get('/api/mail/:userEmail',mail.sendMail);
 
 //app.post('/api/user',api.)
 
