@@ -2,6 +2,9 @@
 
 // Module dependencies.
 var express = require('express');
+require('systemd');
+require('autoquit');
+var http = require('http');
 
 var app = express();
 
@@ -51,7 +54,10 @@ app.get('/api/mail/:userEmail',mail.sendMail);
 
 // Start server
 var port = process.env.PORT || 3000;
-app.listen(port, function () {
+var server = http.createServer(app);
+if (process.env.NODE_ENV === "production")
+  server.autoQuit({ timeout: 1800 });
+server.listen(port, function () {
   console.log('Express server listening on port %d in %s mode', port, app.get('env'));
 });
 
