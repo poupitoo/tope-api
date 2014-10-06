@@ -13,6 +13,7 @@ require('./lib/config/express')(app);
 var api = require('./lib/controllers/api'),
 		user = require('./lib/controllers/models/user'),
 		top = require('./lib/controllers/models/top'),
+		mail = require('./lib/controllers/mailserver'),
     index = require('./lib/controllers');
 
 // Server Routes
@@ -22,14 +23,25 @@ app.get('/api/awesomeThings', api.awesomeThings);
 //Users
 app.get('/api/users', user.getUsers);
 app.post('/api/user', user.createUser);
-app.put('/api/user/:id',user.updateInfo);
+app.put('/api/user/:id',user.updateUserInfo);
+
+
+//Terminals
+app.get('/api/terminals', user.getTerminals);
+app.post('/api/terminal', user.createTerminal);
+app.put('/api/terminal/:id',user.updateTerminalInfo);
+
 
 
 //Top
 app.get('/api/tap/:userId/timestamp/:timestamp', top.checkTop);
 
 
+//Synchronisation
 app.get('/api/timestamp', api.timestamp);
+
+//Mail
+app.get('/api/mail/:userEmail',mail.sendMail);
 
 //app.post('/api/user',api.)
 
