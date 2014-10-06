@@ -6,6 +6,7 @@ require('systemd');
 require('autoquit');
 var http = require('http');
 
+console.log(process.env.LISTEN_FDS);
 var app = express();
 
 
@@ -55,11 +56,16 @@ app.get('/api/mail/:userEmail',mail.sendMail);
 // Start server
 var port = process.env.PORT || 3000;
 var server = http.createServer(app);
-if (process.env.NODE_ENV === "production")
+if (app.get('env') === "production") {
+  console.log("I am in prod");
   server.autoQuit({ timeout: 1800 });
-server.listen(port, function () {
+  server.listen('systemd')
   console.log('Express server listening on port %d in %s mode', port, app.get('env'));
-});
+} else {
+  server.listen(port, function () {
+    console.log('Express server listening on port %d in %s mode', port, app.get('env'));
+  });
+}
 
 // Expose app
 exports = module.exports = app;
