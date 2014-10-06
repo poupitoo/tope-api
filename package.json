@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "dependencies": {
     "autoquit": "0.1.6",
-    "connect-livereload": "0.4.0",
     "ejs": "0.8.4",
     "express": "3.4.3",
     "nodemailer": "0.7.1",
