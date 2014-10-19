@@ -17,6 +17,7 @@ require('./lib/config/express')(app);
 var api = require('./lib/controllers/api'),
 		user = require('./lib/controllers/models/user'),
 		top = require('./lib/controllers/models/top'),
+    node = require('./lib/controllers/models/node'),
 		mail = require('./lib/controllers/mailserver'),
     index = require('./lib/controllers');
 
@@ -28,6 +29,13 @@ app.get('/api/awesomeThings', api.awesomeThings);
 app.get('/api/users', user.getUsers);
 app.post('/api/user', user.createUser);
 app.put('/api/user/:id',user.updateUserInfo);
+
+
+//Nodes
+app.get('/api/nodes', node.getNodes);
+app.post('/api/node', node.createNode);
+app.put('/api/node/:id',node.updateNodeInfo);
+
 
 
 //Terminals
